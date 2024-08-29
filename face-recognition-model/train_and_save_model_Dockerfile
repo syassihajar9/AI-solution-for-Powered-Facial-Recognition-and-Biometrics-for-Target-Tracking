@@ -1,0 +1,18 @@
+# Use the official TensorFlow image as the base image
+FROM tensorflow/tensorflow:latest
+
+# Create a working directory
+WORKDIR /app
+
+# Install necessary dependencies
+RUN pip install --no-cache-dir pillow
+
+# Copy the .keras model file and the training script to the working directory
+COPY model.keras /app/model.keras
+COPY train_and_save_model.py /app/train_and_save_model.py
+
+# Copy the training data
+COPY data/train /app/data/train
+
+# Run the training and save script
+CMD ["python", "/app/train_and_save_model.py"]

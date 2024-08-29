@@ -48,3 +48,16 @@ Thumbs.db
 *.mov
 *.wmv
 
+# Ignore node_modules in any directory
+**/node_modules/
+
+# Ignore tf_env in any directory
+**/tf_env/
+**/bin/
+**/obj/
+
+
+# Ignore the specific files
+model.keras
+tensorflow-2.10.0-cp39-cp39-win_amd64.whl
+

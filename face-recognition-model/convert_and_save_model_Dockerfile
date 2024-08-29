@@ -1,0 +1,12 @@
+# Use the official TensorFlow image as the base image
+FROM tensorflow/tensorflow:latest
+
+# Create a working directory
+WORKDIR /app
+
+# Copy the .keras model file and the conversion script to the working directory
+COPY model/model.keras /app/model/model.keras
+COPY convert_and_save_model.py /app/convert_and_save_model.py
+
+# Run the conversion script
+CMD ["python", "/app/convert_and_save_model.py"]
